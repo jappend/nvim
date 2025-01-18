@@ -16,7 +16,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    {
+        'nvim-telescope/telescope.nvim', tag = '0.1.8',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    }
+
 }
 local opts = {}
 
@@ -52,3 +57,8 @@ vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>")
 -- Exit with Ctrl+q
 vim.keymap.set("n", "<C-q>", ":q<CR>")
 vim.keymap.set("i", "<C-q>", "<Esc>:q<CR>")
+
+-- Telescope Keymaps
+local builtin = require("telescope.builtin")
+vim.keymap.set('n', '<leader>p', builtin.find_files, { desc = "Telescope: Find Files" })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Telescope: Live Grep" })
