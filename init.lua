@@ -20,7 +20,8 @@ local plugins = {
     {
         'nvim-telescope/telescope.nvim', tag = '0.1.8',
         dependencies = { 'nvim-lua/plenary.nvim' }
-    }
+    },
+    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}
 
 }
 local opts = {}
@@ -33,9 +34,9 @@ vim.opt.relativenumber = true		-- Relative numbers (good for navigation)
 vim.opt.cursorline = true		-- Highlight current line
 vim.opt.wrap = false			-- No line breaking
 vim.opt.tabstop = 4			-- TAB size (4 spaces)
-vim.opt.shiftwidth = 4			-- Automatic identation (4 spaces)
+vim.opt.shiftwidth = 4			-- Automatic indentation (4 spaces)
 vim.opt.expandtab = true		-- Convert TABs to spaces
-vim.opt.smartindent = true		-- Smart identation
+vim.opt.smartindent = true		-- Smart indentation
 vim.opt.hlsearch = true			-- Highlight searches
 vim.opt.incsearch = true		-- Search while typing
 vim.opt.ignorecase = true		-- Ignore uppercase/lowercase in search
@@ -62,3 +63,11 @@ vim.keymap.set("i", "<C-q>", "<Esc>:q<CR>")
 local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<leader>p', builtin.find_files, { desc = "Telescope: Find Files" })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Telescope: Live Grep" })
+
+-- Treesitter Config
+local config = require("nvim-treesitter.configs")
+config.setup({
+	ensure_installed = {"lua", "javascript"},
+	highlight = { enable = true },
+	indent = { enable = true },
+})
