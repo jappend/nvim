@@ -1,3 +1,6 @@
+-- Important keymapping
+vim.g.mapleader = " "			-- Configure "space" as leader key
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -15,18 +18,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = {
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    {
-        'nvim-telescope/telescope.nvim', tag = '0.1.8',
-        dependencies = { 'nvim-lua/plenary.nvim' }
-    },
-    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}
-
-}
-local opts = {}
-
-require("lazy").setup(plugins, opts)
+require("lazy").setup("plugins")
 
 -- Basic Config
 vim.opt.number = true			-- Show line count
@@ -48,9 +40,6 @@ vim.opt.termguicolors = true		-- Turn on terminal colors
 vim.opt.signcolumn = "yes"		-- Always show sign column
 vim.cmd("colorscheme catppuccin \" catppucin-macchiato \" ")		-- Choose basic theme
 
--- Nice keymapping
-vim.g.mapleader = " "			-- Configure "space" as leader key
-
 -- Save with Ctrl+s
 vim.keymap.set("n", "<C-s>", ":w<CR>")
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>")
@@ -67,7 +56,10 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Telescope: Live G
 -- Treesitter Config
 local config = require("nvim-treesitter.configs")
 config.setup({
-	ensure_installed = {"lua", "javascript"},
+  ensure_installed = {"lua", "javascript"},
 	highlight = { enable = true },
 	indent = { enable = true },
 })
+
+-- Neotree Keymapping
+vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left <CR>')
