@@ -30,11 +30,11 @@ require("lazy").setup(plugins, opts)
 
 -- Basic Config
 vim.opt.number = true			-- Show line count
-vim.opt.relativenumber = true		-- Relative numbers (good for navigation)
+vim.opt.relativenumber = true	-- Relative numbers (good for navigation)
 vim.opt.cursorline = true		-- Highlight current line
 vim.opt.wrap = false			-- No line breaking
-vim.opt.tabstop = 4			-- TAB size (4 spaces)
-vim.opt.shiftwidth = 4			-- Automatic indentation (4 spaces)
+vim.opt.tabstop = 2		        -- TAB size (2 spaces)
+vim.opt.shiftwidth = 2			-- Automatic indentation (2 spaces)
 vim.opt.expandtab = true		-- Convert TABs to spaces
 vim.opt.smartindent = true		-- Smart indentation
 vim.opt.hlsearch = true			-- Highlight searches
