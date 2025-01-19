@@ -23,7 +23,18 @@ return {
         capabilities = capabilities
       })
       lspconfig.gopls.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
+        cmd = { "gopls" },  -- O comando para rodar o gopls
+        filetypes = { "go", "gomod" }, -- Tipos de arquivos que o gopls irá lidar
+        root_dir = lspconfig.util.root_pattern("go.mod", ".git"), -- Diretórios raiz (go.mod ou git)
+        settings = {
+          gopls = {
+            analyses = {
+              nilness = true, -- Habilitar análise de nilness
+            },
+            staticcheck = true, -- Habilitar staticcheck
+          }
+        }
       })
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
