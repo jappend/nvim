@@ -5,6 +5,7 @@ return {
   {
     'L3MON4D3/LuaSnip',
     dependencies = {
+      'hrsh7th/vim-vsnip',
       'saadparwaiz1/cmp_luasnip',
       'rafamadriz/friendly-snippets'
     }
