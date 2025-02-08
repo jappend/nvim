@@ -12,4 +12,4 @@ Just download xclip, or any other clipboard provider.
 sudo pacman -S xclip
 ```
 
-Hope you enjoy, this repo is being actively updated according to my needs.
+Hope you enjoy. This repo is being actively updated according to my needs.
