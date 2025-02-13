@@ -21,9 +21,23 @@ vim.opt.termguicolors = true		-- Turn on terminal colors
 vim.opt.signcolumn = "yes"		-- Always show sign column
 
 -- Save with Ctrl+s
-vim.keymap.set("n", "<C-s>", ":w<CR>")
-vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>")
+vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = "Saves the file (NORMAL mode)" })
+vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>", { desc = "Saves the file (INSERT mode)" })
 
 -- Exit with Ctrl+q
-vim.keymap.set("n", "<C-q>", ":q<CR>")
-vim.keymap.set("i", "<C-q>", "<Esc>:q<CR>")
+vim.keymap.set("n", "<C-q>", ":q<CR>", { desc = "Exits Neovim (NORMAL mode)" })
+vim.keymap.set("i", "<C-q>", "<Esc>:q<CR>", { desc = "Exits Neovim (INSERT mode)" })
+
+-- setup diagnostics
+vim.diagnostic.config({ virtual_text = false })
+vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Opens error diagnostics" })
+-- set up LSP signs
+for type, icon in pairs({
+	Error = "\u{2716}",
+	Warn = "\u{26A0}",
+	Hint = "\u{279C}",
+	Info = "\u{2139}",
+}) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" }) 
+end
