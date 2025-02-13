@@ -5,7 +5,7 @@ My config from NeoVim, just clone this repo's content to `~/.config/nvim` or whe
 Depending on the language, you may need to download some LSP's.
 
 ---
-Download [[https://github.com/BurntSushi/ripgrep | RipGrep]] to make the LiveGrep work and [[https://github.com/sharkdp/fd | fd]] for some extended capabilities.
+Download [https://github.com/BurntSushi/ripgrep | RipGrep] to make the LiveGrep work and [https://github.com/sharkdp/fd | fd] for some extended capabilities.
 
 Just download xclip, or any other clipboard provider.
 ##### Arch Linux:
