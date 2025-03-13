@@ -5,7 +5,7 @@ My config from NeoVim, just clone this repo's content to `~/.config/nvim` or whe
 Depending on the language, you may need to download some LSP's.
 
 Make sure you have node package manager (npm) installed in order for the Live Server plugin to work. Also install the Live
-Server plugin globally (this build should do it for you, but to avoid bugs, do it yourself).
+Server package globally (this build should do it for you, but to avoid bugs, do it yourself).
 ```
 sudo npm install -g live-server
 ```
