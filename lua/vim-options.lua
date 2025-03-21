@@ -31,6 +31,10 @@ vim.keymap.set("i", "<C-q>", "<Esc>:q<CR>", { desc = "Exits Neovim (INSERT mode)
 -- setup diagnostics
 vim.diagnostic.config({ virtual_text = false })
 vim.keymap.set("n", "<leader>de", vim.diagnostic.open_float, { desc = "Opens error diagnostics" })
+
+-- Toggle live server
+vim.keymap.set("n", "<leader>lss", ":LiveServerStart<CR>", { desc = "Starts Live Server"})
+vim.keymap.set("n", "<leader>lst", ":LiveServerStop<CR>", { desc = "Stops Live Server"})
 -- set up LSP signs
 for type, icon in pairs({
 	Error = "\u{2716}",
