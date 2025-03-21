@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "gopls", "jdtls" }
+        ensure_installed = { "lua_ls", "gopls", "jdtls", "tsserver" }
       })
     end
   },
@@ -40,6 +40,9 @@ return {
         capabilities = capabilities,
         cmd = { "jdtls" },
         root_dir = lspconfig.util.root_pattern("pom.xml", "build.gradle", ".git")
+      })
+      lspconfig.tsserver.setup({
+        capabilities = capabilities
       })
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
